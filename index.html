@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planetary Facts</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preload" as="image" href="assets/background-stars.svg">
+
+    <link rel="shortcut icon" href="assets/meteor-solid.svg" type="image/x-icon">
+</head>
+<body>
+    <section class="falling-stars"><span class="falling-star"></span><span class="falling-star"></span><span class="falling-star"></span><span class="falling-star"></span><span class="falling-star"></span><span class="falling-star"></span><span class="falling-star"></span><span class="falling-star"></span><span class="falling-star"></span><span class="falling-star"></span></section>
+
+    <button class="star-toggle fixed-bottom-right"><i class="fa-regular fa-star"></i></button>
+
+    <section class="stars">
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+        <span class="twinkle"></span>
+    </section>
+
+    <div class="main-content">
+        <header>
+            <div class="nav-bar glass">
+                <h1>THE PLANETS</h1>
+                <div class="navbar-btn-wrapper">
+                    <div class="hamburger">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <button class="planet-btn active hover-btn" value="mercury">MERCURY</button>
+                    <button class="planet-btn hover-btn" value="venus">VENUS</button>
+                    <button class="planet-btn hover-btn" value="earth">EARTH</button>
+                    <button class="planet-btn hover-btn" value="mars">MARS</button>
+                    <button class="planet-btn hover-btn" value="jupiter">JUPITER</button>
+                    <button class="planet-btn hover-btn" value="saturn">SATURN</button>
+                    <button class="planet-btn hover-btn" value="uranus">URANUS</button>
+                    <button class="planet-btn hover-btn" value="neptune">NEPTUNE</button>
+                </div>
+            </div>
+        </header>
+        
+        <div class="top">
+            <div class="top-1">
+                <img src="assets/planet-mercury.svg" class="planet-fade-up">
+                <img src="assets/geology-mercury.png" class="geology">
+            </div>
+            <div class="top-2">
+                <div></div>
+                <div class="col glass-modified">
+                    <div class="col-left">
+                        <h1 class="planet-name">MERCURY</h1>
+                        <p class="planet-description">
+                            Third planet from the Sun and the only known planet to harbor life. About 29.2% of Earth's surface is land with remaining 70.8% is covered with water. Earth's distance from the Sun, physical properties and geological history have allowed life to evolve and thrive.
+                        </p>
+                        <span>Source : <a href="" class="vertical-scaling">Wikipedia<img src="assets/icon-source.svg" class="source-icon"></a></span>
+                    </div>
+                    <div class="col-right">
+                        <button class="btn-hover active grow overview-class" value="overview" onclick="informationBtnClick(this)"><span class="button-span">01</span>OVERVIEW</button>
+                        <button class="btn-hover info-border grow structure-class" value="structure" onclick="informationBtnClick(this)"><span class="button-span">02</span>INTERNAL STRUCTURE</button>
+                        <button class="btn-hover info-border grow surface-geology-class" value="surface geology" onclick="informationBtnClick(this)"><span class="button-span">03</span>SURFACE GEOLOGY</button>
+                    </div>
+                </div>
+                <div></div>
+            </div>
+        </div>
+        
+        <div class="bottom">
+            <div class="information">
+                <p>ROTATION TIME</p>
+                <h1>59 DAYS</h1>
+            </div>
+            <div class="information">
+                <p>REVOLUTION TIME</p>
+                <h1>88 DAYS</h1>
+            </div>
+            <div class="information">
+                <p>RADIUS</p>
+                <h1>2,440 KM</h1>
+            </div>
+            <div class="information">
+                <p>AVERAGE TEMP.</p>
+                <h1>430°C</h1>
+            </div>
+        </div>
+        
+        <div class="scroll-icon">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

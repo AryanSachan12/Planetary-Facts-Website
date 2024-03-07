@@ -1,0 +1,909 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #070724; 
+    overflow-x: hidden;
+}
+
+.glass {
+    background: linear-gradient(135 deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+}
+
+.glass-modified {
+    background: linear-gradient(135 deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);   
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.grow {
+    transition: transform 0.3s ease-out;
+    backface-visibility: hidden;
+}
+
+.grow:hover {
+    transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+}
+
+.falling-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    animation: animateBg 50s linear infinite;
+    background-image: url('assets/background-stars.svg');
+    overflow: hidden;
+}
+
+@keyframes fade-in-star {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.falling-stars span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #fff;
+    transform: rotate(315deg);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
+    animation: fade-in-star 0.5s ease-in;
+    animation: animate 3s linear infinite;
+}
+
+.falling-stars span:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 1px;
+    animation: fade-in-star 0.5s ease-in;
+    background: linear-gradient(90deg, #fff, transparent);
+} 
+
+@keyframes animate {
+    0% {
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(315deg) translateX(-1000px);
+        opacity: 0;
+    }
+}
+
+.falling-stars span:nth-child(1) {
+    top: 0;
+    right: 0;
+    left: initial;
+    animation-delay: 0;
+    animation-duration: 1s;
+}
+.falling-stars span:nth-child(2) {
+    top: 0;
+    right: 80px;
+    left: initial;
+    animation-delay: 0.2s;
+    animation-duration: 3s;
+}
+.falling-stars span:nth-child(3) {
+    top: 80px;
+    right: 0px;
+    left: 30%;
+    animation-delay: 0.4s;
+    animation-duration: 2s;
+}
+.falling-stars span:nth-child(4) {
+    top: 0px;
+    left: 5%;
+    animation-delay: 0.6s;
+    animation-duration: 1.5s;
+}
+.falling-stars span:nth-child(5) {
+    top: 0px;
+    right: 400px;
+    left: initial;
+    animation-delay: 0.8s;
+    animation-duration: 2.5s;
+}
+.falling-stars span:nth-child(6) {
+    top: 0px;
+    right: 600px;
+    left: 20%;
+    animation-delay: 1s;
+    animation-duration: 3s;
+}
+.falling-stars span:nth-child(7) {
+    top: 300px;
+    right: 0px;
+    left: initial;
+    animation-delay: 1.2s;
+    animation-duration: 1.75s;
+}
+.falling-stars span:nth-child(8) {
+    top: 0;
+    right: 700px;
+    left: initial;
+    animation-delay: 1.4s;
+    animation-duration: 1.25s;
+}
+.falling-stars span:nth-child(9) {
+    top: 0px;
+    right: 1000px;
+    left: initial;
+    animation-delay: 0.75s;
+    animation-duration: 2.25s;
+}
+.falling-stars span:nth-child(10) {
+    top: 0px;
+    right: 450px;
+    left: initial;
+    animation-delay: 2.75s;
+    animation-duration: 2.25s;
+}
+
+.falling-star {
+    display: block;
+}
+
+
+@keyframes animateBg {
+    0%,100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.stars span.twinkle {
+    animation: twinkle 5s infinite ease-in-out;
+    opacity: 0; /* Initially make the stars transparent */
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0; /* Stars are transparent at the beginning and end */
+    }
+    50% {
+        opacity: 1; /* Stars are visible in the middle of the animation */
+    }
+}
+
+.stars .twinkle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #ffffff9f;
+}
+
+.stars span:nth-child(1) {
+    top: 70%;
+    left: 65%;
+    animation-delay: 2s;
+}
+
+.stars span:nth-child(2) {
+    top: 80%;
+    left: 6%;
+    animation-delay: 1.5s;
+}
+
+.stars span:nth-child(3) {
+    top: 9%;
+    left: 85%;
+    animation-delay: 2.3s;
+}
+
+.stars span:nth-child(4) {
+    top: 40%;
+    left: 35%;
+    animation-delay: 1.2s;
+}
+
+.stars span:nth-child(5) {
+    top: 10%;
+    left: 70%;
+    animation-delay: 2.8s;
+}
+
+.stars span:nth-child(6) {
+    top: 60%;
+    left: 55%;
+    animation-delay: 0.5s;
+}
+
+.stars span:nth-child(7) {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0.8s;
+}
+
+.stars span:nth-child(8) {
+    top: 8%;
+    left: 7%;
+    animation-delay: 1s;
+}
+
+.stars span:nth-child(9) {
+    top: 30%;
+    left: 25%;
+    animation-delay: 2.75s;
+}
+
+.stars span:nth-child(10) {
+    top: 30%;
+    left: 90%;
+    animation-delay: 1.7s;
+}
+
+.stars span:nth-child(11) {
+    top: 20%;
+    left: 80%;
+    animation-delay: 1.3s;
+}
+
+.stars span:nth-child(12) {
+    top: 5%;
+    left: 5%;
+    animation-delay: 1.9s;
+}
+
+.stars span:nth-child(13) {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0.7s;
+}
+
+.stars span:nth-child(14) {
+    top: 50%;
+    left: 75%;
+    animation-delay: 1.4s;
+}
+
+.stars span:nth-child(15) {
+    top: 60%;
+    left: 90%;
+    animation-delay: 0.9s;
+}
+
+.stars span:nth-child(16) {
+    top: 15%;
+    left: 40%;
+    animation-delay: 1.6s;
+}
+
+.stars span:nth-child(17) {
+    top: 45%;
+    left: 20%;
+    animation-delay: 0.6s;
+}
+
+.stars span:nth-child(18) {
+    top: 70%;
+    left: 50%;
+    animation-delay: 2.2s;
+}
+
+.stars span:nth-child(19) {
+    top: 25%;
+    left: 65%;
+    animation-delay: 1.1s;
+}
+
+.stars span:nth-child(20) {
+    top: 55%;
+    left: 30%;
+    animation-delay: 2.5s;
+}
+
+.main-content {
+    position: absolute;
+}
+
+.hamburger{
+    display: none;
+}
+
+.nav-bar {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: whitesmoke;
+    padding: 0 25px;
+    font-family: "Antonio", sans-serif;
+    height: 5rem;
+}
+
+.nav-bar h1 {
+    margin-right: auto;
+    margin-left: 5px;
+    font-size: 1.5rem;
+}
+
+.hover-btn:hover {
+    border-bottom: 1px solid;
+}
+
+.nav-bar button {
+    margin: 0px 30px;
+    font-size: 0.85rem;
+    border: none;
+    background: none;
+    color: gray;
+    font-weight: 600;
+    height: 5rem;
+    cursor: pointer;
+}
+
+.nav-bar button:hover {
+    color: rgb(162, 162, 162);
+}
+
+.nav-bar button.active {
+    color: white;
+}
+
+.nav-bar h1, .nav-bar button{
+    animation: fade-down 0.5s ease-in-out;
+}
+
+.planet-grow {
+    animation: planetGrow 0.5s ease-in-out;
+}
+
+.planet-fade-up{
+    animation: fade-up 0.25s ease-in-out;
+}
+
+@keyframes planetGrow {
+    0% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1.10);
+    }
+}
+
+@keyframes fade-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px) scale(1);
+    }
+}
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px) scale(1);
+    }
+}
+
+.star-toggle {
+    position: fixed;
+    width: 35px;
+    left: auto;
+    right: 20px; /* Adjust this value as needed */
+    bottom: 20px; /* Adjust this value as needed */
+    z-index: 5;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.fixed-bottom-right {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 16px; /* Adjust margin as needed */
+    background-color: #333;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.star-toggle:hover {
+    cursor: pointer;
+}
+
+
+
+/*ABOUT THE PLANET*/
+
+.top {
+    height: 91vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-family: "League Spartan", sans-serif;
+}
+
+.top-1 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30rem;
+}
+
+.top-1 img {
+    width: 20rem;
+    margin-left: 20rem;
+}
+
+.top-1 .geology {
+    position: absolute;
+    width: 163px;
+    height: 199px;
+    transform:translateY(85px);
+    display: none;
+}
+
+.top-2 {
+    display: grid;
+    grid-template-columns: 20% 40% 45%;
+    align-items: start;
+    flex: 1;
+    height: 30rem;
+    color: white;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.top-2 h1 {
+    font-size: 4.15rem;
+    font-family: "Antonio", sans-serif;
+}
+
+.top-2 h1 {
+    display: inline-block;
+    transform: scale(1, 1.25);
+    /* Safari and Chrome */
+    -webkit-transform: scale(1, 1.25);
+    /* Firefox */
+    -moz-transform: scale(1, 1.25);
+    /* IE 9+ */
+    -ms-transform: scale(1, 1.25);
+    /* Opera */
+    -o-transform: scale(1, 1.25);
+}
+
+.planet-description {
+    margin: 1.75rem 0;
+    font-size: 1.15rem;
+    color: #9b9b9b;
+}
+
+.top-2 span {
+    color: rgb(190, 190, 190);
+    margin-bottom: 1.75rem;
+    user-select: none;
+}
+
+.top-2 span a {
+    color: gray;
+    font-weight: 600;
+    user-select: none;
+}
+
+.source-icon {
+    color: gray;
+    margin-left: 5px;
+}
+
+.top-2 button {
+    border: none;
+    background: none;
+    width: 100%;
+    height: 50px;
+    color: white;
+    text-align: left;
+    padding: 0px 20px;
+    letter-spacing: 0.15rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+
+.top-2 .info-border {
+    border: 1px solid gray;
+}
+
+.button-span {
+    margin-right: 20px;
+    font-weight: 900;
+}
+
+.top-2 button.active {
+    background-color: #8fabb7;
+}
+
+.btn-hover:hover {
+    background-color: gray;
+}
+
+/*Bottom*/
+
+.bottom {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.information {
+    border: 1px solid gray;
+    margin: 0 20px;
+    margin-bottom: 60px;
+    width: 15rem;
+    height: 6.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.information p {
+    font-size: 0.85rem;
+    font-family: "League Spartan", sans-serif;
+    color: gray;
+}
+
+.information h1 {
+    margin-top: 10px;
+    font-family: "Antonio", sans-serif;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.scroll-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadeIn 0.5s ease-in; /* Initial fade-in animation */
+}
+
+.fa-chevron-down {
+    color: white;
+    font-size: 2rem;
+}
+
+/* Initially hide the arrow */
+.scroll-icon.hidden {
+    display: none;
+    animation: fadeOut 0.5s ease-out; /* Fade-out animation when hidden */
+}
+
+@media (max-width: 1340px) {
+
+    .navbar-btn-wrapper img {
+        display: none;
+    }
+
+    .main-content {
+        height: auto;
+    }
+
+    .nav-bar {
+        display: block;
+    }
+
+    .navbar-btn-wrapper {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        position: fixed;
+    }
+    .nav-bar h1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-bar button {
+        margin-bottom: 25px;
+        height: 100%;
+    }
+
+    .top {
+        flex-direction: column;
+        height: auto;
+        /* justify-content: center;
+        align-items: center; */
+    }
+
+    .col {
+        border: none;
+    }
+
+    .top-1 {
+        flex: none;
+        height: 41rem;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    
+    .top-1 img {
+        margin: auto;
+        display: block;
+    }
+
+    .top-2 {
+        flex: none;
+        margin-top: 50px;
+        display: flex;
+        max-width: 100%;
+        justify-content: space-around;
+        margin-bottom: 0;
+        
+    }
+
+    .top-2 .col {
+        margin: 0 20px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .col-left {
+        flex: 1;
+    }
+
+    .col-right {
+        flex: 1;
+        height: 100%;
+    }
+
+    .col-right button:nth-child(1) {
+        margin-top: 7rem;
+    }
+
+    .bottom {
+        position: absolute;
+        top: 95%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 0;
+    }
+
+    .scroll-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 150px; /* Adjust the distance from the bottom as needed */
+        left: 50%;
+        transform: translateX(-50%);
+        animation: fadeIn 0.5s ease-in; /* Initial fade-in animation */
+    }
+
+    .bottom {
+        width: 100%;
+    }
+}
+
+@media (max-width:1000px) {
+    
+    .navbar-btn-wrapper {
+        width: 9rem;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        top: 20px;
+        right: 20px;
+    }
+    .nav-bar {
+        display: flex;
+    }
+    .nav-bar h1 {
+        text-align: left;
+    }
+
+    .hamburger {
+        width: 4.5rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 3rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hamburger .fa-solid {
+        font-size: 1.5rem;
+        cursor: pointer;
+
+    }
+
+    /* .navbar-btn-wrapper {
+        width: 9rem;
+        position: fixed;
+        display: block;
+        left: auto;
+        top: 20%;
+        right: 5px;
+    } */
+
+    .navbar-btn-wrapper button {
+        display: none;
+        text-align: end;
+        width: 5rem;
+        cursor: pointer;
+    }
+
+    .navbar-btn-wrapper button:first-child {
+        margin-top: 50px;
+    }
+
+    /* .information {
+        width: 100%;
+        height: 7rem;
+    }
+
+    .information h1 {
+        font-size: 1.5rem;
+    } */
+    .top-2 .col h1 {
+        font-size: 3rem;
+    }
+    .top-2 .col p {
+        font-size: 1rem;
+    }.top-2 .col button {
+        margin-left: 10px;
+    }
+    .bottom {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    /* .bottom {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } */
+    .information {
+        width: 85%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        /* text-align: center; */
+    }
+    .information p {
+        font-size: 1.15rem;
+        height: auto;
+    }
+    .information h1 {
+        margin: 0;
+        height: auto; 
+    }
+}
+
+@media (max-width: 428px) {
+
+    .navbar-btn-wrapper img {
+        display: block ;
+    }
+    .nav-bar {
+        display: flex;
+    }
+    .nav-bar h1 {
+        text-align: left;
+    }
+
+
+
+    .hamburger .fa-solid {
+        font-size: 1.5rem;
+        cursor: pointer;
+
+    }
+
+    .navbar-btn-wrapper button {
+        display: none;
+        text-align: end;
+        width: 5rem;
+        cursor: pointer;
+    }
+
+    .navbar-btn-wrapper button:first-child {
+        margin-top: 50px;
+    }
+
+    .bottom {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .information {
+        width: 85%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .information p {
+        font-size: 1rem;
+        height: auto;
+    }
+    .information h1 {
+        font-size: 1.5rem;
+        margin: 0;
+        height: auto; 
+    }
+}
