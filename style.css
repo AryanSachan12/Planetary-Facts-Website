@@ -424,28 +424,20 @@ body {
     position: fixed;
     width: 35px;
     left: auto;
-    right: 20px; /* Adjust this value as needed */
-    bottom: 20px; /* Adjust this value as needed */
+    right: auto; /* Adjust this value as needed */
+    bottom: 20px;
+    margin-left: 20px; /* Adjust this value as needed */
     z-index: 5;
     height: 35px;
     border: none;
     border-radius: 50%;
-    opacity: 0.5;
+    opacity: 0.1;
 }
 
-.fixed-bottom-right {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: 16px; /* Adjust margin as needed */
-    background-color: #333;
-    color: #fff;
-    padding: 8px;
-    border-radius: 4px;
-}
 
 .star-toggle:hover {
     cursor: pointer;
+    opacity: 1;
 }
 
 
