@@ -34,6 +34,7 @@ body {
 .grow {
     transition: transform 0.3s ease-out;
     backface-visibility: hidden;
+    overflow-x: hidden;
 }
 
 .grow:hover {
